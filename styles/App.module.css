@@ -1,0 +1,293 @@
+.container {
+  padding: 1rem 13rem;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid #efbdeb;
+  justify-content: center;
+  align-items: center;
+  color: #000b;
+}
+
+.footer a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+  text-decoration: underline;
+}
+
+.title {
+  margin: 0;
+  line-height: 1;
+}
+
+.title,
+.description {
+  text-align: center;
+}
+
+.description {
+  margin: 1.5rem 10rem;
+  color: grey;
+  line-height: 1.5;
+  font-size: 1.5rem;
+}
+
+.code {
+  background: grey;
+  border-radius: 5px;
+  padding: 0.4rem;
+  color: white;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+}
+
+.card {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  text-align: right;
+  color: #0004;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  width: 100%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0009;
+  border-color: #0009;
+  /* text-decoration: underline; */
+}
+
+.card h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem;
+}
+
+.promptBox {
+  /* margin: auto 9rem; */
+  align-items: center;
+  justify-content: center;
+  border-bottom-width: 1px;
+  border-color: grey;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-style: solid;
+  border-top-width: 1px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: column nowrap;
+  gap: 10px;
+  height: 150px;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  width: 620px;
+  max-width: 1200px;
+  will-change: transform;
+  overflow: auto;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 0px;
+  line-height: 1.6em;
+  text-align: start;
+  color: #0009;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.hash {
+  margin: 1rem 9rem;
+  align-items: center;
+  justify-content: center;
+  border-bottom-width: 1px;
+  cursor: pointer;
+  border-color: #fff;
+  border-style: solid;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-top-width: 1px;
+  place-content: flex-start;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-flow: column nowrap;
+  gap: 10px;
+  height: 70px;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+  width: 620px;
+  max-width: 1200px;
+  will-change: transform;
+  overflow: auto;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  font-style: normal;
+  letter-spacing: 0px;
+  line-height: 1.6em;
+  text-align: start;
+  color: #0009;
+  text-decoration: none;
+  text-transform: none;
+}
+
+.promptBox:focus {
+  border-color: grey;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    width: 100%;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .card,
+  .footer {
+    border-color: #0004;
+  }
+  .code {
+    background-color: grey;
+  }
+  .code:hover {
+    background-color: #0009;
+  }
+  .logo img {
+    filter: invert(1);
+  }
+}
+
+/*  */
+
+@media (min-width: 810px) and (max-width: 1199px) {
+  /* .container {
+      max-width: 600px;
+      width: 100%;
+  } */
+
+  .promptContainer {
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .promptBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 809px) {
+  /* .container {
+      max-width: 500px;
+      width: 100%;
+  } */
+
+  .promptContainer {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .promptBox {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  /* .container {
+      max-width: 400px;
+      width: 100%;
+  } */
+
+  .header-title h1 {
+    font-size: 50px;
+  }
+
+  .header-subtitle h2 {
+    text-align: center;
+  }
+
+  .key-stroke,
+  .or {
+    display: none;
+  }
+
+  .promptButtons {
+    justify-content: center;
+  }
+
+  .promptContainer {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .promptBox {
+    width: 100%;
+  }
+}
+
+/* Loading ring animation */
+.loader {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 2px solid #fff;
+  border-right: 2px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
