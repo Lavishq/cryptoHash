@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 
 export default function Home() {
   const [userInput, setUserInput] = useState("");
+  
   return (
     <div className={styles.container}>
       <Head>

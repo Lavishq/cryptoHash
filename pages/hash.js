@@ -3,22 +3,15 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import styles from "../styles/App.module.css";
 import Navbar from "./Navbar";
-const { keccak256 } = require("ethereum-cryptography/keccak");
-const { toHex, utf8ToBytes } = require("ethereum-cryptography/utils");
+import useHashMessage from "../hooks/useHash";
 
 export default function Home() {
   const [userInput, setUserInput] = useState("");
   const [hash, setHash] = useState("");
 
-  function hashMessage(message) {
-    console.log("message in bytes", utf8ToBytes(message));
-    console.log("message hashed in bytes", keccak256(utf8ToBytes(message)));
-    return keccak256(utf8ToBytes(message));
-  }
-
   useEffect(() => {
-    console.log("hash string",toHex(hashMessage(userInput)))
-    setHash(toHex(hashMessage(userInput)));
+    // console.log("hash string",toHex(useHashMessage(userInput)))
+    setHash(useHashMessage(userInput));
   }, [userInput]);
 
   return (
