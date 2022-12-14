@@ -4,29 +4,36 @@ import { useState } from "react";
 import useHashMessage from "../hooks/useHash";
 import styles from "../styles/App.module.css";
 import Navbar from "./Navbar";
+import { utf8ToBytes } from "ethereum-cryptography/utils";
 
 export default function Home() {
   const [userInput, setUserInput] = useState("");
+  const [sig, setSig] = useState("");
   const [user, setUser] = useState("");
+  const [connected, setConnected] = useState(false);
 
   const signMessage = async (account) => {
-    if (ethereum) {
-      // connect wallet
-      connectHandler();
-    }
+    // if (ethereum) {
+    // connect wallet
+    // const address = await connectHandler();
+    // setUser(address);
+    // }
     if (!userInput) {
       // no input
       console.log("Enter message to sign");
     }
-    if (account && userInput) {
-      // wallet connected and input
-      const hash = useHashMessage(userInput);
+    if (user && userInput) {
+      
+      // below lines can be used to hash the msg then sign but you can hash first and copy then sign too
+      // const hashMsg = useHashMessage(userInput);
+      // setHash(hashMsg);
+      // console.log(hash);
       const signature = await ethereum.request({
         method: "personal_sign",
-        params: [user.toString(), hash],
+        params: [user, userInput],
       });
       console.log(signature);
-      return signature;
+      setSig(signature);
     }
   };
 
@@ -36,10 +43,12 @@ export default function Home() {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
-        setUser(accounts[0]);
         console.log(accounts[0]);
+        setConnected(true);
+        setUser(accounts[0]);
+        return;
       } catch (err) {
-        console.error(err);
+        // console.error(err);
         console.log("There was a problem connecting to MetaMask");
       }
     } else {
@@ -57,10 +66,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <Link href="/hash">Sign</Link>
+          <Link href="/sign">Sign</Link>
         </h1>
 
-        <p className={styles.description}>Sign a message</p>
+        <p className={styles.description}>
+          Sign a message. First the message is hashed and then signed by account
+        </p>
       </main>
       <div className={styles.textContainer}>
         <textarea
@@ -71,7 +82,31 @@ export default function Home() {
             setUserInput(e.target.value);
           }}
         />
-        <button onClick={signMessage}>sign message</button>
+
+        {connected ? (
+          <button className={styles.card} onClick={signMessage}>
+            Sign
+          </button>
+        ) : (
+          <button className={styles.card} onClick={connectHandler}>
+            Connect
+          </button>
+        )}
+        {sig && (
+          <>
+            <span className={styles.description}>Signature:</span>
+          </>
+        )}
+        <div className={styles.textContainer}>
+          {sig && (
+            <div
+              className={styles.hash}
+            >
+              {sig.substring(0, 30)}.....{" "}
+              {sig.substring(sig.length - 30, sig.length)}
+            </div>
+          )}
+        </div>
       </div>
 
       <footer className={styles.footer}>

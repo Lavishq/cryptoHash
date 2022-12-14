@@ -11,7 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     // console.log("hash string",toHex(useHashMessage(userInput)))
-    setHash(useHashMessage(userInput));
+    setHash("0x" + useHashMessage(userInput));
   }, [userInput]);
 
   return (
@@ -42,16 +42,25 @@ export default function Home() {
             setUserInput(e.target.value);
           }}
         />
-        {/* <button className={styles.card} id="#hashbtn">
-          Hash
-        </button> */}
+
         {/* add a tooltip to copy onclick */}
+        {hash && (
+          <>
+            <span className={styles.description}>
+              Digest:
+              {/* <br /> */}
+            </span>
+            {/* <span className={styles.promptBox}></span>{hash} */}
+          </>
+        )}
         <div className={styles.textContainer}>
           {hash && (
             <div
               placeholder="enter message to hash ..."
               className={styles.hash}
-            >{`hash: ${hash}`}</div>
+            >
+              {hash}
+            </div>
           )}
         </div>
       </div>

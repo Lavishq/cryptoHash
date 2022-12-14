@@ -42,7 +42,8 @@
 }
 
 .description {
-  margin: 1.5rem 10rem;
+  margin: 1.5rem 9rem;
+  margin-bottom: 0rem;
   color: grey;
   line-height: 1.5;
   font-size: 1.5rem;
@@ -67,9 +68,8 @@
 }
 
 .card {
-  margin: 1rem;
+  margin-top: 3rem;
   padding: 0.5rem 1rem;
-  text-align: right;
   color: #0004;
   font-size: 1.5rem;
   font-weight: 600;
@@ -77,7 +77,10 @@
   border: 1px solid;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  width: 100%;
+  max-width: 130px;
+  cursor: pointer;
+  width: 50%;
+  margin-left: 2rem auto;
 }
 
 .card:hover,
@@ -99,10 +102,11 @@
   align-items: center;
   justify-content: center;
   margin: 1.5rem;
+  padding: 0 6rem;
 }
 
 .promptBox {
-  /* margin: auto 9rem; */
+  margin-top: 1.5rem;
   align-items: center;
   justify-content: center;
   border-bottom-width: 1px;
@@ -118,7 +122,7 @@
   flex-flow: column nowrap;
   gap: 10px;
   height: 150px;
-  overflow: hidden;
+  overflow: auto;
   padding: 20px;
   position: relative;
   width: 620px;
@@ -138,9 +142,6 @@
 }
 
 .hash {
-  margin: 1rem 9rem;
-  align-items: center;
-  justify-content: center;
   border-bottom-width: 1px;
   cursor: pointer;
   border-color: #fff;
@@ -148,8 +149,6 @@
   border-left-width: 1px;
   border-right-width: 1px;
   border-top-width: 1px;
-  place-content: flex-start;
-  align-items: flex-start;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   display: flex;
@@ -158,22 +157,14 @@
   gap: 10px;
   height: 70px;
   overflow: hidden;
+  align-items: center;
   padding: 20px;
   position: relative;
-  width: 620px;
+  width: 635px;
   max-width: 1200px;
   will-change: transform;
-  overflow: auto;
-  outline: none;
-  resize: none;
-  font-size: 16px;
-  font-style: normal;
-  letter-spacing: 0px;
-  line-height: 1.6em;
-  text-align: start;
   color: #0009;
-  text-decoration: none;
-  text-transform: none;
+  font-weight: 600;
 }
 
 .promptBox:focus {
