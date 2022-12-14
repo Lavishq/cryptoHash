@@ -14,6 +14,13 @@ export default function Home() {
     setHash("0x" + useHashMessage(userInput));
   }, [userInput]);
 
+  const copy = async () => {
+    if (hash) {
+      await navigator.clipboard.writeText(hash);
+      alert("Text copied");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -55,10 +62,7 @@ export default function Home() {
         )}
         <div className={styles.textContainer}>
           {hash && (
-            <div
-              placeholder="enter message to hash ..."
-              className={styles.hash}
-            >
+            <div className={styles.hash} onClick={copy}>
               {hash}
             </div>
           )}

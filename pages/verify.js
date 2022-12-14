@@ -10,6 +10,13 @@ export default function Home() {
   const [sig, setSig] = useState("");
   const [address, setAddress] = useState("");
 
+  const copy = async () => {
+    if (address) {
+      await navigator.clipboard.writeText(address);
+      alert("Text copied");
+    }
+  };
+
   const getAddress = async () => {
     if (userInput && sig) {
       const recoveredAddress = ethers.utils.verifyMessage(userInput, sig);
@@ -74,7 +81,9 @@ export default function Home() {
       {address && (
         <div className={styles.textContainer}>
           <span className={styles.description}>Address:</span>
-          <div className={styles.hash}>{address}</div>
+          <div className={styles.hash} onClick={copy}>
+            {address}
+          </div>
         </div>
       )}
 

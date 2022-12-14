@@ -12,6 +12,13 @@ export default function Home() {
   const [user, setUser] = useState("");
   const [connected, setConnected] = useState(false);
 
+  const copy = async () => {
+    if (sig) {
+      await navigator.clipboard.writeText(sig);
+      alert("Text copied");
+    }
+  };
+
   const signMessage = async (account) => {
     // if (ethereum) {
     // connect wallet
@@ -23,7 +30,6 @@ export default function Home() {
       console.log("Enter message to sign");
     }
     if (user && userInput) {
-      
       // below lines can be used to hash the msg then sign but you can hash first and copy then sign too
       // const hashMsg = useHashMessage(userInput);
       // setHash(hashMsg);
@@ -97,11 +103,9 @@ export default function Home() {
             <span className={styles.description}>Signature:</span>
           </>
         )}
-        <div className={styles.textContainer}>
+        <div className={styles.textContainer} onClick={copy}>
           {sig && (
-            <div
-              className={styles.hash}
-            >
+            <div className={styles.hash} onClick={copy}>
               {sig.substring(0, 30)}.....{" "}
               {sig.substring(sig.length - 30, sig.length)}
             </div>
